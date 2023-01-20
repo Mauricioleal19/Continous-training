@@ -2,9 +2,9 @@
 version '1.0-SNAPSHOT'
 
 repositories {
-    jcenter()
+
     mavenCentral()
-    mavenLocal()
+
 
     flatDir {
         dirs 'src/test/resources/lib'

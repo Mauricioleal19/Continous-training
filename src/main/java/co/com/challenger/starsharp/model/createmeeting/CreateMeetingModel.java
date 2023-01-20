@@ -3,6 +3,7 @@ import lombok.Data;
 
 @Data
 public class CreateMeetingModel {
-    private String nameBusinessunit;
+    private String meetingName;
+
 
 }

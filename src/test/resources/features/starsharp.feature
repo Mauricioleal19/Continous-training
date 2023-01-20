@@ -8,10 +8,10 @@ Feature: Log in to the StarSharp platform, create a Business Unit and finally sc
       | nameBusinessunit   |
       | <nameBusinessunit> |
     Then i should see the name of the business unit in the table
-      | verification |
-      | <verification> |
+      | validationCreatebusinessUnit |
+      | <validationCreatebusinessUnit> |
     Examples:
-      | nameBusinessunit | verification |
+      | nameBusinessunit | validationCreatebusinessUnit |
     ##@externaldata@./src/test/resources/data/data.xlsx@BusinessUnits
    |Businessunit   |Businessunit|
 
@@ -21,10 +21,11 @@ Feature: Log in to the StarSharp platform, create a Business Unit and finally sc
       | meetingName   |
       | <meetingName> |
     Then i should see the meeting created
-      | verificationName   |
-      | <verificationName> |
+      | verificationCreateMeeting   |
+      | <verificationCreateMeeting> |
     Examples:
-      | meetingName |verificationName  |
+      | meetingName |verificationCreateMeeting  |
     ##@externaldata@./src/test/resources/data/data.xlsx@Meetings
+   |meeting created   |meeting created|
 
 

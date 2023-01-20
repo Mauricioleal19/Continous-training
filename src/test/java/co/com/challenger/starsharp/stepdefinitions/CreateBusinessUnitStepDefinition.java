@@ -3,7 +3,8 @@ package co.com.challenger.starsharp.stepdefinitions;
 import co.com.challenger.starsharp.model.createbusinessunits.SetBusinessUnit;
 import co.com.challenger.starsharp.model.createmeeting.SetCreateMeeting;
 import co.com.challenger.starsharp.model.validations.SetValidation;
-import co.com.challenger.starsharp.questions.TheAnwer;
+import co.com.challenger.starsharp.questions.TheAnswerIsMeetingName;
+import co.com.challenger.starsharp.questions.TheAnwerNameBusinessUnit;
 import co.com.challenger.starsharp.tasks.CreateMeeting;
 import co.com.challenger.starsharp.tasks.EnterBusinessUnit;
 import co.com.challenger.starsharp.tasks.LogIn;
@@ -49,7 +50,7 @@ public class CreateBusinessUnitStepDefinition {
     @Then("i should see the name of the business unit in the table")
     public void iShouldSeeTheNameOfTheBusinessUnitInTheTable(DataTable dataTable) {
         OnStage.theActorInTheSpotlight().should(GivenWhenThen.seeThat(
-                TheAnwer.nameBusinessUnit(setValidation.setData(dataTable).get(0))
+                TheAnwerNameBusinessUnit.with(setValidation.setData(dataTable).get(0))
         ));
 
     }
@@ -62,7 +63,10 @@ public class CreateBusinessUnitStepDefinition {
     }
 
     @Then("i should see the meeting created")
-    public void iShouldSeeTheMeetingCreated() {
+    public void iShouldSeeTheMeetingCreated(DataTable dataTable) {
+        OnStage.theActorInTheSpotlight().should(GivenWhenThen.seeThat(
+                TheAnswerIsMeetingName.with(setValidation.setData(dataTable).get(0))
+        ));
 
     }
 

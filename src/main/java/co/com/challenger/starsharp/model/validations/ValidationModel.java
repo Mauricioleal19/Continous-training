@@ -3,6 +3,7 @@ import lombok.Data;
 
 @Data
 public class ValidationModel {
-    private String verification;
+    private String validationCreatebusinessUnit;
+    private String verificationCreateMeeting;
 
 }

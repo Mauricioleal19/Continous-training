@@ -1,8 +1,6 @@
 package co.com.challenger.starsharp.tasks;
 
-import co.com.challenger.starsharp.interactions.RandomName;
 import co.com.challenger.starsharp.model.createbusinessunits.BusinessUnitModel;
-import co.com.challenger.starsharp.model.createbusinessunits.SetBusinessUnit;
 import co.com.challenger.starsharp.questions.IsDifferentMessage;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Task;
@@ -10,7 +8,6 @@ import net.serenitybdd.screenplay.Tasks;
 import net.serenitybdd.screenplay.actions.Click;
 import net.serenitybdd.screenplay.actions.Enter;
 import net.serenitybdd.screenplay.conditions.Check;
-import net.serenitybdd.screenplay.questions.Text;
 import net.serenitybdd.screenplay.waits.WaitUntil;
 
 import static co.com.challenger.starsharp.userinterface.CreateBusinessUnitPage.*;
@@ -30,8 +27,7 @@ public class EnterBusinessUnit implements Task {
 
     @Override
     public <T extends Actor> void performAs(T actor) {
-        RandomName name = new RandomName();
-        String nameBusinessUnit = name.name();
+
         actor.attemptsTo(
                 WaitUntil.the(ORGANIZATION, isCurrentlyVisible()).forNoMoreThan(10).seconds(),
                 Click.on(ORGANIZATION),
