@@ -21,9 +21,11 @@ public class CreateBusinessUnitPage extends PageObject {
     public static final Target SELECT_PARENT_UNIT = Target.the("Select parent unit")
             .located(By.id("s2id_Serenity_Pro_Organization_BusinessUnitDialog3_ParentUnitId"));
     public static final Target SELECT_OPTION = Target.the("Select parent unit OPTION")
-            .located(By.xpath("//*[@id='select2-results-1']/li[3]"));
+            .located(By.xpath("//ul[@class='select2-results']//*[contains(text(),'Administration')]"));
     public static final Target BUTTON_SAVE_BUSINESS_UNIT = Target.the("Save business unit")
             .located(By.xpath("//span[@class='button-inner'][contains(.,'Save')]"));
+    public static final Target TITTLE_BUSINESS_UNIT = Target.the("Tittle business unit")
+            .located(By.xpath("//div[@class='title-text'][contains(.,'Business Units')]"));
 
     public static final Target FIELD_SEARCH = Target.the("Search Business Unit Created")
             .located(By.xpath("//input[contains(@title,'enter the text to search for...')]"));

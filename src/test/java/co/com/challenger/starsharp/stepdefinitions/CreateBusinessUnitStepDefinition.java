@@ -1,8 +1,10 @@
 package co.com.challenger.starsharp.stepdefinitions;
 
 import co.com.challenger.starsharp.model.createbusinessunits.SetBusinessUnit;
+import co.com.challenger.starsharp.model.createmeeting.SetCreateMeeting;
 import co.com.challenger.starsharp.model.validations.SetValidation;
 import co.com.challenger.starsharp.questions.TheAnwer;
+import co.com.challenger.starsharp.tasks.CreateMeeting;
 import co.com.challenger.starsharp.tasks.EnterBusinessUnit;
 import co.com.challenger.starsharp.tasks.LogIn;
 import io.cucumber.datatable.DataTable;
@@ -20,7 +22,9 @@ import static co.com.challenger.starsharp.utils.EnvironmentConstants.*;
 public class CreateBusinessUnitStepDefinition {
 
     SetBusinessUnit setBusinessUnit = new SetBusinessUnit();
+    SetCreateMeeting setCreateMeeting = new SetCreateMeeting();
     SetValidation setValidation = new SetValidation();
+
     @Before
     public void initialConfiguration(){
         OnStage.setTheStage(new OnlineCast());
@@ -33,7 +37,6 @@ public class CreateBusinessUnitStepDefinition {
         OnStage.theActorInTheSpotlight().attemptsTo(
                 LogIn.withCredentials()
         );
-
     }
     @When("i enter information to create a business unit")
     public void iEnterInformationToCreateABusinessUnit(DataTable dataTable) {
@@ -43,7 +46,6 @@ public class CreateBusinessUnitStepDefinition {
         );
 
     }
-
     @Then("i should see the name of the business unit in the table")
     public void iShouldSeeTheNameOfTheBusinessUnitInTheTable(DataTable dataTable) {
         OnStage.theActorInTheSpotlight().should(GivenWhenThen.seeThat(
@@ -51,4 +53,17 @@ public class CreateBusinessUnitStepDefinition {
         ));
 
     }
+    @When("i enter information to create a meeting")
+    public void iEnterInformationToCreateAMeeting(DataTable dataTable) {
+        OnStage.theActorInTheSpotlight().attemptsTo(
+                CreateMeeting.withCharacteristics(setCreateMeeting.setData(dataTable).get(0))
+        );
+
+    }
+
+    @Then("i should see the meeting created")
+    public void iShouldSeeTheMeetingCreated() {
+
+    }
+
 }

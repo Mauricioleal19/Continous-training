@@ -12,6 +12,19 @@ Feature: Log in to the StarSharp platform, create a Business Unit and finally sc
       | <verification> |
     Examples:
       | nameBusinessunit | verification |
-      | Businessunit     | Businessunit |
+    ##@externaldata@./src/test/resources/data/data.xlsx@BusinessUnits
+   |Businessunit   |Businessunit|
+
+  @CreateMeeting
+  Scenario Outline: Create meeting
+    When i enter information to create a meeting
+      | meetingName   |
+      | <meetingName> |
+    Then i should see the meeting created
+      | verificationName   |
+      | <verificationName> |
+    Examples:
+      | meetingName |verificationName  |
+    ##@externaldata@./src/test/resources/data/data.xlsx@Meetings
 
 
